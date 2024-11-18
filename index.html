@@ -80,24 +80,67 @@
         <section id="dashboard" class="mb-8">
             <h2 class="text-2xl font-semibold mb-4">Dashboard</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- FCW Requirements Collector -->
                 <div class="bg-white p-6 shadow rounded">
                     <h3 class="text-lg font-bold">FCW Requirements Collector</h3>
-                    <form id="fcw-requirements-form" class="mt-4">
-                        <!-- Form fields will be generated dynamically -->
-                    </form>
+                    <form id="fcw-requirements-form" class="mt-4"></form>
                 </div>
+        
+                <!-- GenAI Engine -->
                 <div class="bg-white p-6 shadow rounded">
-                    <h3 class="text-lg font-bold">GenAI Engine</h3>
-                    <button id="generate-code-btn" class="bg-blue-500 text-white px-4 py-2 rounded mt-4">Generate FCW Code</button>
-                    <button id="validate-code-btn" class="bg-green-500 text-white px-4 py-2 rounded mt-4">Validate FCW Code</button>
+                    <h3 class="text-lg font-bold mb-4">GenAI Engine</h3>
+                    <div class="mb-4">
+                        <button id="generate-code-btn" class="bg-blue-500 text-white px-4 py-2 rounded mr-2">
+                            Generate FCW Code
+                        </button>
+                        <button id="validate-code-btn" class="bg-green-500 text-white px-4 py-2 rounded">
+                            Validate FCW Code
+                        </button>
+                    </div>
+                    <!-- Input Box -->
+                    <div class="box input-box bg-gray-100 p-4 rounded mb-4">
+                        <textarea 
+                            id="input-box" 
+                            class="w-full h-24 p-2 rounded border border-gray-300" 
+                            placeholder="Enter specifications like 'Collision Warning Threshold: 50'..."
+                        ></textarea>
+                    </div>
+                    <!-- Output Box -->
+                    <div class="box output-box bg-gray-100 p-4 rounded">
+                        <span id="output-box" class="text-gray-600 italic">
+                            Output will appear here...
+                        </span>
+                    </div>
+                    <!-- Language Selector -->
+                    <div class="mt-4">
+                        <label for="language-select" class="block text-sm font-medium text-gray-700">Language:</label>
+                        <select 
+                            id="language-select" 
+                            class="border px-4 py-2 rounded w-full mt-2"
+                        >
+                            <option value="python">Python</option>
+                            <option value="c++">C++</option>
+                            <option value="java">Java</option>
+                        </select>
+                    </div>
                 </div>
+        
+                <!-- Simulation Environment -->
                 <div class="bg-white p-6 shadow rounded">
-                    <h3 class="text-lg font-bold">Simulation Environment</h3>
-                    <select id="simulation-environment-select" class="border px-4 py-2 rounded w-full mt-4">
+                    <h3 class="text-lg font-bold mb-4">Simulation Environment</h3>
+                    <select 
+                        id="simulation-environment-select" 
+                        class="border px-4 py-2 rounded w-full mb-4"
+                    >
                         <option value="carla">CARLA</option>
                         <option value="gazebo">GAZEBO</option>
                     </select>
-                    <button id="run-simulation-btn" class="bg-red-500 text-white px-4 py-2 rounded mt-4">Run Simulation</button>
+                    <button 
+                        id="run-simulation-btn" 
+                        class="bg-red-500 text-white px-4 py-2 rounded"
+                    >
+                        Run Simulation
+                    </button>
                 </div>
             </div>
         </section>
@@ -106,6 +149,14 @@
         <p>&copy; 2024 All rights reserved by <a href="#">Team Drifters</a>.</p>
     </footer>
     <script>
+            document.addEventListener("DOMContentLoaded", () => {
+        const generateBtn = document.getElementById("generate-code-btn");
+        const outputBox = document.getElementById("output-box");
+
+        generateBtn.addEventListener("click", () => {
+            outputBox.textContent = "The model is in development. This is a prototype.";
+        });
+    });
         document.addEventListener("DOMContentLoaded", function () {
             const scrollingText = document.getElementById('scrolling-text');
             const container = document.getElementById('scrolling-container');
