@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - AutoGenix FCW CodeForge</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        header {
+            background-color: #1a202c;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        header nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        header nav ul li a {
+            color: #e2e8f0;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        header nav ul li a:hover {
+            color: #63b3ed;
+        }
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #2d3748;
+        }
+        footer {
+            background-color: #1a202c;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+        footer a {
+            color: #63b3ed;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="text-3xl font-bold">Settings</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li><a href="project.html"><i class="fas fa-project-diagram"></i> Projects</a></li>
+                <li><a href="#settings"><i class="fas fa-cog"></i> Settings</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="p-8">
+
+        <section>
+            <h2 class="section-title mb-4">Application Settings</h2>
+            <div class="bg-white p-6 shadow rounded mb-6">
+                <label for="theme-select" class="block text-sm font-medium text-gray-700">Theme</label>
+                <select id="theme-select" class="border px-4 py-2 rounded w-full mt-2 mb-4">
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                </select>
+
+                <label for="language-select" class="block text-sm font-medium text-gray-700">Language</label>
+                <select id="language-select" class="border px-4 py-2 rounded w-full mt-2 mb-4">
+                    <option value="en">English</option>
+                    <option value="es">Spanish</option>
+                    <option value="fr">French</option>
+                </select>
+            </div>
+        </section>
+                <!-- Simulation Settings -->
+                <section class="settings-section">
+                    <h2 class="section-title mb-4">Simulation Settings</h2>
+                    <div class="mb-4">
+                        <label for="frame-rate" class="block text-sm font-medium text-gray-700">Frame Rate</label>
+                        <input type="number" id="frame-rate" min="1" max="120" class="border px-4 py-2 rounded w-full" placeholder="Enter frame rate">
+                    </div>
+                    <div class="mb-4">
+                        <label for="simulation-speed" class="block text-sm font-medium text-gray-700">Simulation Speed</label>
+                        <input type="range" id="simulation-speed" min="1" max="10" class="w-full">
+                    </div>
+                </section>
+                        <!-- GenAI Engine Settings -->
+        <section class="settings-section">
+            <h2 class="section-title mb-4">GenAI Engine Settings</h2>
+            <div class="mb-4">
+                <label for="code-complexity" class="block text-sm font-medium text-gray-700">Code Complexity</label>
+                <select id="code-complexity" class="border px-4 py-2 rounded w-full">
+                    <option value="basic">Basic</option>
+                    <option value="intermediate">Intermediate</option>
+                    <option value="advanced">Advanced</option>
+                </select>
+            </div>
+            <div class="mb-4">
+                <label for="timeout-duration" class="block text-sm font-medium text-gray-700">Code Generation Timeout (seconds)</label>
+                <input type="number" id="timeout-duration" min="10" max="300" class="border px-4 py-2 rounded w-full" placeholder="Enter timeout duration">
+            </div>
+        </section>
+        <section>
+            <h2 class="section-title mb-4">Account Settings</h2>
+            <div class="bg-white p-6 shadow rounded mb-6">
+                <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
+                <input 
+                    type="text" 
+                    id="username" 
+                    class="border px-4 py-2 rounded w-full mt-2 mb-4" 
+                    placeholder="Enter your username" 
+                />
+
+                <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                <input 
+                    type="email" 
+                    id="email" 
+                    class="border px-4 py-2 rounded w-full mt-2 mb-4" 
+                    placeholder="Enter your email" 
+                />
+
+                <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                <input 
+                    type="password" 
+                    id="password" 
+                    class="border px-4 py-2 rounded w-full mt-2 mb-4" 
+                    placeholder="Enter a new password" 
+                />
+                <button 
+                    class="bg-blue-500 text-white px-4 py-2 rounded"
+                >Save Changes</button>
+            </div>
+        </section>
+        <section>
+            <h2 class="section-title mb-4">Notifications</h2>
+            <div class="bg-white p-6 shadow rounded mb-6">
+                <div class="flex items-center mb-4">
+                    <input 
+                        type="checkbox" 
+                        id="email-notifications" 
+                        class="mr-2"
+                    />
+                    <label for="email-notifications" class="text-sm">Email Notifications</label>
+                </div>
+                <div class="flex items-center mb-4">
+                    <input 
+                        type="checkbox" 
+                        id="sms-notifications" 
+                        class="mr-2"
+                    />
+                    <label for="sms-notifications" class="text-sm">SMS Notifications</label>
+                </div>
+                <div class="flex items-center">
+                    <input 
+                        type="checkbox" 
+                        id="app-notifications" 
+                        class="mr-2"
+                    />
+                    <label for="app-notifications" class="text-sm">In-App Notifications</label>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title mb-4">Privacy</h2>
+            <div class="bg-white p-6 shadow rounded">
+                <div class="flex items-center mb-4">
+                    <input 
+                        type="checkbox" 
+                        id="data-sharing" 
+                        class="mr-2"
+                    />
+                    <label for="data-sharing" class="text-sm">Allow data sharing with third-party services</label>
+                </div>
+                <button 
+                    class="bg-red-500 text-white px-4 py-2 rounded"
+                >Delete My Account</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 All rights reserved by <a href="#">Team Drifters</a>.</p>
+    </footer>
+</body>
+</html>
